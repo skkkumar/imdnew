@@ -1,0 +1,81 @@
+<application>
+
+  <name>IMD v2.0</name>
+
+  <dependencies>
+      <port>/icubSim/cam/left</port>
+  </dependencies>
+
+<!--  <module>
+      <name>objectdetection</name>
+      <node>localhost</node>
+      <stdio>localhost</stdio>
+      <tag>objectdetection</tag>
+  </module>-->
+
+  <module>
+      <name>imgAcq</name>
+      <node>localhost</node>
+      <tag>imgAcq</tag>
+  </module>  
+  
+    <module>
+      <name>kpe</name>
+      <node>localhost</node>
+      <tag>kpe</tag>
+  </module>  
+
+  <module>
+      <name>yarpview</name>
+      <parameters>--name /original:o --x 10 --y 10</parameters>
+      <node>localhost</node>
+      <tag>objectViewerRight</tag>
+  </module>
+  
+    <module>
+      <name>yarpview</name>
+      <parameters>--name /kpe:o --x 10 --y 10</parameters>
+      <node>localhost</node>
+      <tag>objectViewerRight</tag>
+  </module>
+  
+  
+  <connection>
+      <from>/kpe/image:o</from>
+      <to>/kpe:o</to>
+      <protocol>tcp</protocol>
+  </connection>
+
+  <connection>
+      <from>/icubSim/cam/left</from>
+      <to>/original:o</to>
+      <protocol>tcp</protocol>
+  </connection>
+  
+  <connection>
+      <from>/icubSim/cam/left</from>
+      <to>/acq/image:i</to>
+      <protocol>tcp</protocol>
+  </connection>
+  
+  <connection>
+      <from>/acq/image1:o</from>
+      <to>/kpe/image1:i</to>
+      <protocol>tcp</protocol>
+  </connection>
+  
+  <connection>
+      <from>/acq/image2:o</from>
+      <to>/kpe/image2:i</to>
+      <protocol>tcp</protocol>
+  </connection>
+
+  <connection>
+      <from>/acq/velocity:o</from>
+      <to>/kpe/velocity:i</to>
+      <protocol>tcp</protocol>
+  </connection>
+  
+</application>
+
+

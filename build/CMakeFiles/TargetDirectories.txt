@@ -1,0 +1,3 @@
+/home/sriram/projects/imd/build/collnlearn/CMakeFiles/collectnlearn.dir
+/home/sriram/projects/imd/build/acq_img/CMakeFiles/imgAcq.dir
+/home/sriram/projects/imd/build/kpe/CMakeFiles/kpe.dir
